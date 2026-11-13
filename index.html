@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanizeAI Pro Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f6ff;color:#18213c}
+header{background:#171b46;color:white;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:bold}
+.logo span{color:#a78bfa}
+.menu{display:flex;gap:9px;flex-wrap:wrap}
+button{border:0;padding:11px 15px;border-radius:9px;cursor:pointer;font-weight:bold}
+.menu button{background:#303565;color:white}
+.menu button.active{background:#8055ef}
+.layout{display:flex;min-height:calc(100vh - 65px)}
+aside{width:225px;background:#202653;color:white;padding:22px 14px}
+aside h3{margin:5px 10px 22px;color:#c4b5fd}
+.nav{display:block;width:100%;text-align:left;margin:7px 0;background:transparent;color:white;padding:13px}
+.nav.active,.nav:hover{background:#45417d}
+main{flex:1;padding:28px;min-width:0}
+h1{font-size:28px;margin-bottom:10px}
+.sub{color:#737b94;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin:20px 0}
+.card{background:white;border-radius:15px;padding:22px;box-shadow:0 5px 20px #17255410}
+.card h3{font-size:16px;margin-bottom:10px}
+.card p{color:#7550df;font-size:22px;font-weight:bold}
+.panel{background:white;border-radius:16px;padding:22px;margin-top:18px;box-shadow:0 5px 20px #17255410}
+.primary{background:#7650e8;color:white}
+iframe{width:100%;height:750px;border:0;border-radius:12px}
+.page{display:none}
+.page.active{display:block}
+footer{text-align:center;color:#858ba0;padding:25px}
+@media(max-width:700px){
+.layout{display:block}
+aside{width:100%;display:flex;overflow-x:auto;padding:8px}
+aside h3{display:none}
+.nav{width:auto;white-space:nowrap;margin:2px}
+main{padding:17px}
+header{padding:15px}
+.logo{font-size:18px}
+.menu{display:none}
+iframe{height:700px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">HumanizeAI <span>Pro</span></div>
+<div class="menu">
+<button onclick="showPage('home',this)" class="active">Home</button>
+<button onclick="showPage('improver',this)">AI Improver</button>
+</div>
+</header>
+
+<div class="layout">
+<aside>
+<h3>MY WORKSPACE</h3>
+<button class="nav active" onclick="showPage('home',this)">🏠 Dashboard</button>
+<button class="nav" onclick="showPage('improver',this)">✍️ AI Text Improver</button>
+<button class="nav" onclick="showPage('history',this)">📚 Writing History</button>
+<button class="nav" onclick="showPage('referral',this)">🎁 Refer & Earn</button>
+<button class="nav" onclick="showPage('plans',this)">💎 Plans & Credits</button>
+<button class="nav" onclick="showPage('profile',this)">👤 About & Profile</button>
+</aside>
+
+<main>
+<section id="home" class="page active">
+<h1>Welcome to HumanizeAI Pro 👋</h1>
+<p class="sub">Your smart AI writing improvement workspace.</p>
+<div class="cards">
+<div class="card"><h3>✍️ AI Writing</h3><p>Improve</p><small>Make writing clearer</small></div>
+<div class="card"><h3>🎨 Writing Styles</h3><p>4 Styles</p><small>Natural, Professional, Friendly, Simple</small></div>
+<div class="card"><h3>📚 History</h3><p>My Texts</p><small>View saved writing</small></div>
+</div>
+<div class="panel">
+<h2>Improve Your Writing</h2>
+<p class="sub">Make your text clear, natural and easy to read.</p>
+<button class="primary" onclick="showPage('improver',this)">Start Improving Text →</button>
+</div>
+<div class="panel">
+<h2>How It Works</h2>
+<p>1. Paste your text</p><br>
+<p>2. Choose a writing style</p><br>
+<p>3. Improve and copy your text</p>
+</div>
+</section>
+
+<section id="improver" class="page">
+<h1>AI Text Improver ✨</h1>
+<p class="sub">Use our AI writing assistant below.</p>
+<div class="panel">
+<iframe src="https://udify.app/agent/txchzmxP1eqFCXGV" allow="microphone;clipboard-write"></iframe>
+</div>
+</section>
+
+<section id="history" class="page">
+<h1>Writing History</h1>
+<div class="panel">
+<p>आपकी Writing History सुविधा अभी तैयार नहीं है। इसे सुरक्षित रूप से जोड़ने के लिए Database और Login की जरूरत होगी।</p>
+</div>
+</section>
+
+<section id="referral" class="page">
+<h1>Refer & Earn 🎁</h1>
+<div class="panel">
+<h2>Invite your friends</h2>
+<p>अपनी वेबसाइट दोस्तों के साथ शेयर करें। Referral rewards सुविधा अभी जोड़ी जानी बाकी है।</p><br>
+<button class="primary" onclick="shareSite()">Share Website</button>
+</div>
+</section>
+
+<section id="plans" class="page">
+<h1>Plans & Credits</h1>
+<div class="panel">
+<p>अपने उपलब्ध Plans और Credits की जानकारी यहाँ देखें। वास्तविक कीमतें और भुगतान सुविधा बाद में जोड़ी जाएगी।</p>
+</div>
+</section>
+
+<section id="profile" class="page">
+<h1>About HumanizeAI Pro</h1>
+<div class="panel">
+<h2>Write Better. Sound More Natural.</h2>
+<p>HumanizeAI Pro helps improve writing clarity, readability and tone using AI.</p>
+<p>Choose Natural, Professional, Friendly or Simple writing styles.</p>
+</div>
+</section>
+
+<footer>© 2026 HumanizeAI Pro. All rights reserved.</footer>
+</main>
+</div>
+
+<script>
+function showPage(id,btn){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.nav,.menu button').forEach(b=>b.classList.remove('active'));
+if(btn)btn.classList.add('active');
+window.scrollTo(0,0);
+}
+function shareSite(){
+if(navigator.share){
+navigator.share({title:'HumanizeAI Pro',url:location.href});
+}else{
+navigator.clipboard.writeText(location.href);
+alert('Website link copied!');
+}
+}
+</script>
+</body>
+  </html>
+  
